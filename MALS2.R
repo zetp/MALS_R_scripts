@@ -6,7 +6,7 @@
 ### First set up some parameters
 
 ### How many experiments you would like to compare
-REPS_ <- 2 # how many runs to compare?
+REPS_ <- 3 # how many runs to compare?
 
 #' you can provide any file from the experiments folder
 #' this script will load apropriate files automatically
@@ -15,7 +15,7 @@ REPS_ <- 2 # how many runs to compare?
 #' but with our setup it never is and issue
 
 ### Set limits (in ml) to be displayed
-y_l <- c(9,16.75)
+y_l <- c(10,18)
 
 ### now click "source" to run script
 ####===========
@@ -50,7 +50,7 @@ TAB_ <- do.call(rbind, tab_list)
 
 TAB_$samp <- factor(TAB_$samp, levels = unique(TAB_$samp))
 
-TAB_ %>% filter(ml > y_l[1], ml < y_l[2]) %>%
+TAB_ %>% filter(ml > y_l[1], ml < y_l[2]) %>% filter(!is.na(ratio), ratio<3) %>% 
   #mutate(ratio = ifelse(ratio>2.5,2.5, ratio)) %>% #uncomment this lien to limit maximum ratio 
   ggplot(aes(ml, UV280, color=ratio)) + geom_line(size=3, color="grey30")+geom_line(size=2)+
   scale_color_gradient2(low = "blue", mid = "white", high = "red", midpoint = 1.144)+
