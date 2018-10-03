@@ -50,8 +50,8 @@ TAB_ <- do.call(rbind, tab_list)
 
 TAB_$samp <- factor(TAB_$samp, levels = unique(TAB_$samp))
 
-TAB_ %>% filter(ml > y_l[1], ml < y_l[2]) %>% filter(!is.na(ratio), ratio<3) %>% 
-  #mutate(ratio = ifelse(ratio>2.5,2.5, ratio)) %>% #uncomment this lien to limit maximum ratio 
+TAB_ %>% filter(ml > y_l[1], ml < y_l[2]) %>% 
+  filter(!is.na(ratio), ratio<3) %>% 
   ggplot(aes(ml, UV280, color=ratio)) + geom_line(size=3, color="grey30")+geom_line(size=2)+
   scale_color_gradient2(low = "blue", mid = "white", high = "red", midpoint = 1.144)+
   facet_grid(samp~.)
