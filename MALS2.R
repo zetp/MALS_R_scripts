@@ -6,7 +6,7 @@
 ### First set up some parameters
 
 ### How many experiments you would like to compare
-REPS_ <- 3 # how many runs to compare?
+REPS_ <- 5 # how many runs to compare?
 
 #' you can provide any file from the experiments folder
 #' this script will load apropriate files automatically
@@ -15,7 +15,7 @@ REPS_ <- 3 # how many runs to compare?
 #' but with our setup it never is and issue
 
 ### Set limits (in ml) to be displayed
-y_l <- c(10,15)
+y_l <- c(10,19)
 
 ### now click "source" to run script
 ####===========
